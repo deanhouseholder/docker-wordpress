@@ -47,13 +47,30 @@ Root Password: somewordpress
 
 ## Database Management
 
+### Refresh DB
+
 If you want to refresh the database (reset it back to new install), run:
 
 `docker-compose down`
 `docker volume rm docker-wordpress_db_data`
 
 
+### Backup DB
+
+To back up the database, run:
+
+`docker exec docker-wordpress_db_1 mysqldump -u root -psomewordpress myapp > dump.sql`
+
+
+### Restore DB
+
+To restore the database, run:
+
+`docker exec -i docker-wordpress_db_1 mysql -u root -psomewordpress myapp < dump.sql`
+
+
 
 ## Notes
 
 You'll notice after starting WordPress it will copy the default plugins and themes from a base WordPress install into your `plugins` and `themes` directories. This is fine. You can safely ignore or delete them (except don't delete your default theme.)
+
