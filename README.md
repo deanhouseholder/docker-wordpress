@@ -24,6 +24,7 @@ Hostname: localhost
 Username: wordpress
 Password: wordpress
 DB Name: wordpress
+Port: 3306
 
 Root Password: somewordpress
 ```
