@@ -2,7 +2,9 @@
 
 Barebones Docker config for a WordPress theme and plugin development
 
-## Getting started
+
+
+## Getting Started
 
 After checking out this repo, and assuming you have installed Docker, just run:
 
@@ -30,12 +32,28 @@ Root Password: somewordpress
 ```
 
 
+
 ## To stop container run:
 
 `docker-compose down`
+
 
 
 ## To view log files:
 
 `docker-compose logs -f`
 
+
+
+## Database Management
+
+If you want to refresh the database (reset it back to new install), run:
+
+`docker-compose down`
+`docker volume rm docker-wordpress_db_data`
+
+
+
+## Notes
+
+You'll notice after starting WordPress it will copy the default plugins and themes from a base WordPress install into your `plugins` and `themes` directories. This is fine. You can safely ignore or delete them (except don't delete your default theme.)
